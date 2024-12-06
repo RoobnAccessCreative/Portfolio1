@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Home | RD Portfolio</title>
+{% endblock %}
+
+{% block sidebar %}
+    <a class="item" href="{{ url_for('home') }}">
+        <i class="large address card icon"></i>
+        <p class="text active">Profile</p>
+    </a>
+    <a class="item" href="{{ url_for('projects') }}">
+        <i class="large code icon"></i>
+        <p class="text">Projects</p>
+    </a>
+{% endblock %}
+
+{% block content %}
+    <div id="buttons">
+        <a class="but" href="{{ url_for('home') }}">
+            <p tabindex="-1">Profile</p>
+        </a>
+
+        <a class="but primary" href="{{ url_for('projects') }}">
+            <p tabindex="-1">Projects</p>
+        </a>
+    </div>
+
+    <div class="wrapper">
+        <div class="text-and-header">
+            <h1 class="title left">About Me</h1>
+
+            <p class="text left">
+                Hello there, im an up coming software developer and ui designer based at ACC Norwich.
+                I find passion in the visual aspects of my work that allow me to explore my creativity 
+                and enjoy the development process.
+            </p>
+            <p class="text left space">
+                In my free time, I often find myself projects; creating new ideas and designs; or watching 
+                videos from creators such as MKBHD, Zac Builds, and MrWhoseTheBoss to keep up to date in the 
+                tech world and feed my secondary interest in computer hardware.
+            </p>
+        </div>
+
+        <div class="ui inverted divider small"></div>
+    </div>
+
+    <img class="abt-image self-image" src="{{ url_for('static', filename='photos/aboutc.jpg') }}"/>
+
+    <div class="wrapper">
+        <div class="text-and-header">
+            <h1 class="title left">My Education</h1>
+
+            <p class="text body left">
+                Before my endeavours at college I studied computer science and maths at GCSE 
+                in which I achieved grade 9s in the summer.
+            </p>
+            <p class="text body left space">
+                I am now studying T-level Software Development at Access Creative, where I have built up my 
+                Python skills and theoretical knowledge; whilst exploring new avenues in web development.
+            </p>
+        </div>
+
+        <div class="ui inverted divider small"></div>
+    </div>
+
+    <img class="abt-image" id="edu-image" src="{{ url_for('static', filename='photos/edu.jpg') }}"/>
+    
+    <div class="text-and-header">
+        <h1 class="title left">My Experience</h1>
+
+        <p class="text body left">My skillset has grown dramatically in the last year, including the following:</p>
+        <ul class="text body left">
+            <li>Python development including certain libraries</li>
+                <ul>
+                    <li>Basic Flask routing and Jinja2 templating</li>
+                </ul>
+            <li>Figma designing and prototyping</li>
+            <li>fundamental React knowledge</li>
+            <li>Entry level JavaScript</li>
+            <li>SQLite</li>
+        </ul>
+    </div>
+    
+    <img class="abt-image" id="exp-image" src="{{ url_for('static', filename='photos/exp.jpg') }}"/>
+    
+{% endblock %}

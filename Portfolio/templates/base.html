@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/dropdown.min.js" integrity="sha512-PD2QRjH0s7TFz8Oicpi4UFJBdKP0vFeYpmNPsEoNDHfG3QcGLTs8XUrkXWEQXX2Q0g+1oEwvow27TM2VfPdTxw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/divider.min.css" integrity="sha512-oVjlQ44wbePOJ4mK1reaPNn45WUnBnieWk5VgVCC15MnZXhu8/F/LkLlhHmwMYJs+B/UK+PyuGlFQPYe02StSg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/button.min.css" integrity="sha512-+1Zl+cDrkWiaN4aCOs9XZ12Jm4Lg3OztufLITILSxr3mo5QM3+WgLH6+s+ytIWoWWQcdNlMGn1JHf75TzHvPHA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/icon.min.css" integrity="sha512-rTyypI20S663Wq9zrzMSOP1MNPHaYX7+ug5OZ/DTqCDLwRdErCo2W30Hdme3aUzJSvAUap3SmBk0r5j0vRxyGw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/item.min.css" integrity="sha512-p4sCMRCmSgJQBOFIefzqxB8njKEPXPQxv0VKumU9iimxbo8wm2vQRo47MqWpfg9cAcWYUfFW9DcC3T8Gz4MkuA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/menu.min.css" integrity="sha512-vzV6GDUGaQ3ern46f/02MP4pQhI5Fs4z4dN+0pSNiD4zuPE6Aaxzj9o8ZPTSTIQOBEI3H8wO1V8qV1bQbZcGzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/sidebar.min.css" integrity="sha512-4btzzREsMNzS3OyBEIW/Wip+CuRcm+JKLOSrGi8DU3cXtZ1FWCE0cUKmcyVFbwjg1IlR0LlXXoFfppVfbB+2Gw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/sidebar.min.js" integrity="sha512-Zvh9ucGg/12KrDb43+7EghbChsYCRQUKgH0RW1TE0Ey5LQdcCfAd835YV7Jlvj5R5lbITRiAAO4jf1bh91UWaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+        <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"> <!--Saves Lives-->
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico|Belanosima|Montserrat"/>
+        <link rel="icon" href="{{ url_for('static', filename='photos/faviconn.png') }}"/>
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+
+        <div class="ui right wide sidebar inverted vertical menu">
+            
+                <h2 class="title navbar">Pages</h2>
+            
+            {% block sidebar %}{% endblock %} {# all sidebar items #}
+        </div>
+    
+        <button class="circular ui fixed icon button burger">
+            <i class="big icon bars"></i>
+        </button>
+        <div class="pusher">
+        
+            <div id="content">{# the grid #}
+
+                <img id="banner-image"/>
+
+                
+
+                <a id="title" href="{{ url_for('home') }}">
+                    <p>Reuben</p>
+                    <p>Dubois</p>
+                </a>
+
+                <div id="shadow"></div>
+                {% block content %}{% endblock %}
+            </div>
+            
+            <footer id="footer">
+
+                <p class="text footer header">Github</p>
+                <div class="text footer left">
+                    <a href="https://github.com/RoobnAccessCreative">
+                        RoobnAccessCreative
+                    </a>
+                </div>
+                <p class="text footer header">Contact Me</p>
+        
+                <p class="text footer left">
+                    <a href="mailto:reuben.dubois.000@accesscreative.ac.uk">reuben.dubois.000@accesscreative.ac.uk</a> (Preferred) <br>
+                    <a href="mailto:reubdub07@gmail.com">reubdub07@gmail.com</a><br>
+                </p>
+            </footer>
+
+        </div>
+
+    </body>
+</html>

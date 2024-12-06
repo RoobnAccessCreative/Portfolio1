@@ -1,0 +1,534 @@
+
+/*setting standards for the whole page*/
+
+body, html {
+    /*page dimensions*/
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+    /*cosmetics*/
+  background-color: #291d0d;
+  color: #F9F9FB;
+  font-family: 'Belanosima', 'Brush Script MT', cursive;
+
+  
+
+}
+body.pushable>.pusher {
+  background-color: #291d0d !important;
+  overflow-y: auto;
+}
+p {
+  margin: 0;
+  height: fit-content;
+}
+a {
+  color: #ff7040;
+  transition: color 0.1s ease-in-out;
+  text-decoration: none;
+}
+a:hover {
+  color: #ab2b00;
+}
+
+
+  /*the sidebar*/
+.ui.right.wide.sidebar.inverted.vertical.menu {
+  background: #181108;
+}
+.title.navbar {
+  font-family: 'Belanosima';
+}
+
+#content {
+    /*create the grid*/
+  display: grid;  
+    /*two equal columns*/
+  grid-template-columns: 49vw 49vw; 
+    /*small gap in the centre*/
+  column-gap: 2vw;  
+}
+
+#title, #banner-image, #buttons, #shadow { 
+    /*stacking these elements over each other*/ 
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+
+  /*the background image for the name card*/
+#banner-image {
+    /*img src - more easily dynamic in css*/
+  content: url("/static/photos/bannerLarge.jpg");
+    /*dimensions*/
+  width: 100vw;
+    /*positioned furthest back*/
+  z-index: 0;
+}
+
+.burger {
+  position: fixed;
+  top: 5%;
+  right: 3%;
+  z-index: 4;
+}
+.circular.ui.fixed.icon.button.burger {
+  background-color: #B83205;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.75);
+  margin: 0;
+}
+.big.icon.bars {
+  color: #F9F9FB;
+}
+.circular.ui.fixed.icon.button.burger:hover {
+  background-color: #a92e05f9;
+}
+.big.icon.bars:hover {
+  color: #d7d7d7;
+}
+i.big.icon {
+  line-height: 0.9;
+}
+
+
+  /*the name card*/
+#title {
+    /*font/text qualities*/
+  font-family: 'Pacifico', 'Brush Script MT', cursive;
+  font-size: 11em;
+  line-height: 1em;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.75);
+  color: #F9F9FB;   
+    /*the flexbox*/
+  display: flex;
+  flex-direction: row;
+  column-gap: 60px;
+  flex-wrap: wrap;
+  width: fit-content;
+    /*position of the flexbox*/
+  z-index: 2;
+  align-self: center;
+  justify-self: center;
+    /*position of flex items*/
+  justify-content: center;
+  align-items: center;
+    /*makes each word equidistant from the centre*/
+  margin-left: -25px;
+}
+
+#shadow {
+  z-index: 1;
+  box-shadow: inset 0px -2px 7px -2px rgba(0, 0, 0, 0.75);
+}
+
+#buttons {
+    /*the flexbox*/
+  display: flex;
+  height: fit-content;
+  column-gap: 152px;
+    /*position of flex items*/
+  justify-content: center;
+  align-items: flex-end;
+    /*position of the flexbox*/
+  z-index: 3;
+  align-self: end;
+}
+
+.but {
+  filter: drop-shadow(-2px -6px 6px rgba(0,0,0,0.4));
+    /*shape of the nav buttons*/
+  height: 37px;
+  width: 152px;
+  border: none;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+    /*colour of selected button*/
+  background-color: #291d0d;
+    /*font/text qualities*/
+  font-size: x-large;
+  font-family: inherit;
+  color: #F9F9FB;
+  text-align: center;
+    /*hover transitions*/
+  transition: background-color 0.4s ease-in-out;
+  transition: color 0.5s ease-in-out;
+  transition: height 0.4s ease-in-out;
+}
+
+a.but:focus-visible {
+    /*tab focus matches the shape*/
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+.primary {
+    /*colour of primary button
+    (to switch pages)*/
+  background-color: #B83205;
+
+  box-shadow: inset 0px -3px 5px -1px rgba(0, 0, 0, 0.75);
+}
+
+  /*darkens button and text when hovered*/
+.primary:hover {
+  background-color: #a92e05f9;
+    /*new height*/
+  height: 50px;
+}
+.but:hover {  /*secondary button only has text darken*/
+  color: #d7d7d7;
+}
+
+
+/*--the scrollbar--*/
+
+
+  /*width of the scrollbar*/
+::-webkit-scrollbar {
+  width: 8px;
+}
+  /*remove the track as much as possible*/
+::-webkit-scrollbar-track {
+  background: none; 
+}
+  /*set custom handle style*/
+::-webkit-scrollbar-thumb {
+  background: rgba(69, 42, 23, 0.9); 
+  border-radius: 20px;
+}
+  /*darken handle on hover*/
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 74, 47, 0.9); 
+}
+
+
+  /*--the same styles for horizontal scrollbars--*/
+::-webkit-scrollbar:horizontal {
+  width: 8px;
+}
+::-webkit-scrollbar-track:horizontal{
+  background: none; 
+}
+::-webkit-scrollbar-thumb:horizontal{
+  background: rgba(32, 22, 15, 0.9); 
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover:horizontal{
+  background: rgba(70, 48, 30, 0.9); 
+}
+
+/*--BELOW BANNER--*/
+
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+  /*each holds 1x h1 & 1x p.text*/
+.text-and-header {
+  height: fit-content;
+    /*adds spacing between sections*/
+  margin-top: 80px;
+}
+
+.title {
+    /*font/text qualities*/
+  font-family: inherit;
+  font-size: 4em;
+    /*element 'body' dimensions*/
+  height: fit-content;
+}
+  /*headers aligned left (aka on about page)*/
+.title.left {
+    /*position of element*/
+  margin-left: 7%;
+}
+
+  /*baseline for all text*/
+.text {
+    /*font/text qualities*/
+  color: inherit;
+  font-family: 'Montserrat', 'Gill Sans', 'Gill Sans MT', sans-serif;
+  font-size: larger;
+}
+
+.ui.inverted.divider {
+  width: 80%;
+  align-self: center;
+  border-bottom-width: medium !important;
+  border-bottom-style: solid !important;
+  border-bottom-color: #543823 !important;
+}
+.ui.inverted.divider.small {
+  width: 55vw;
+  margin-left: 26vh;
+  margin-bottom: 0;
+}
+
+
+
+
+/*--.text variations/additions--*/
+
+
+.text.left {
+    /*push text out from the left*/
+  margin-left: 10%;
+}
+.text.footer.header {
+    /*bolds headers*/
+  font-weight: bold;
+    /*adds a gap between sections*/
+  padding-top: 20px;
+    /*margin slightly less than
+    the body beneath it*/
+  margin-left: 65px;
+}
+.text.main {
+  max-width: 35.6vw;
+  padding: 10px 0px 0px 10px;
+  white-space: normal;
+}
+.space {
+    /*adds a gap for additional paragraphs*/
+  padding-top: 10px;
+}
+
+
+/*--PROFILE ONLY--*/
+
+
+.abt-image {
+    /*position of image*/
+  grid-column: 2;
+  justify-self: right;
+    /*dimensions*/
+  width: 35vw;
+  
+  box-shadow: -7px 3px 18px 0px rgba(0, 0, 0, 0.5);
+}
+
+.self-image {
+    /*seperates img and banner*/
+  margin-top: 30px; 
+    /*rounds the only visible edge*/
+  border-top-left-radius: 20px;
+}
+
+li {
+  padding-top: 2%;
+}
+
+
+/*--PROJECTS ONLY--*/
+
+
+.mini-img, .rec-img {
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+}
+.mini-logo-img, .logo-img {
+  filter: drop-shadow(5px 10px 5px rgba(0, 0, 0, 0.5))
+}
+
+.title.centre {
+    /*position of element*/
+  text-align: center;
+  grid-column: 1 / 3;
+    /*overrides or adds to Semantic's 1rem*/
+  margin-bottom: 2rem;
+    /*adds more whitespace*/
+  padding-top: 1.5rem;
+}
+
+.sideways-scroll {
+  display: flex;
+    /*creates horizontal scroll section*/
+  overflow: auto;
+  white-space: nowrap;
+    /*spans whole page width*/
+  grid-column: 1 / 3;
+
+}
+.single {
+  justify-content: center;
+}
+
+  /*a project within the 'main features' section*/
+.mini-proj {
+    /*position of contents*/
+  display: grid;
+    /*size of each column*/
+  grid-template-columns: max-content 32vw;
+    /*small gap between projects*/
+  padding: 0px 20px 0px;
+}
+
+  /*main-projects image showcase*/
+.mini-img {
+  grid-column: 1;
+    /*element dimensions*/
+  max-height: 30vh;
+  width: auto;
+  margin-bottom: 20px;
+    /*cosmetics*/
+  border-radius: 20px;
+}
+
+  /*contains mini-logo-img and text*/
+.logo-y-text {
+  grid-column: 2;
+    /*larger gap between it and mini-img */
+  margin: 0px 0px 0px 20px;
+}
+
+  /*contains .mini-logo-img and .links.main
+    - makes them fully horizontal*/
+.logo-y-links {
+  display: flex;
+}
+
+  /*an image of the projects' logo*/
+.mini-logo-img {
+    /*element dimensions*/
+  max-height: 15vh;
+  width: auto;
+    /*cosmetics*/
+  border-radius: 10px;
+}
+
+  /*the links to figma and github*/
+.links {
+    /*gets link elements to stack i.e. block*/
+  display: grid;
+    /*vertical centre of flexbox*/
+  align-self: center;
+    /*extra whitespace*/
+  margin-left: 10px;
+}
+
+  /*recents-projects image showcase*/
+.rec-img {
+  grid-column: 1;
+  justify-self: end;
+  align-self: center;
+  margin: 0% 3% 0% 0%;
+
+  height: 80%;
+  max-width: 100%;
+
+  border-radius: 20px;
+}
+
+  /*recents-projects logo and bio*/
+.project-info {
+  grid-column: 2;
+  height: fit-content;
+  align-self: center;
+}
+
+.logo-img {
+  max-height: 20vh;
+
+  border-radius: 20px;
+}
+
+  /*wide divider between main and recents*/
+.ui.inverted.divider.wide {
+  grid-column: 1 / 3;
+  justify-self: center;
+    /*padding equal to margin(by semantic) and padding of the title below*/
+  padding-top: calc(2rem - .14285714em + 1.5rem);
+  margin: 0;
+  
+}
+
+
+/*--FOOTER--*/
+
+
+#footer {
+    /*cosmetics*/
+  background-color: #181108;
+    /*footer text smaller than regular*/
+  font-size:smaller;
+    /*explicit dimensions*/
+  width: 100vw;
+  padding: 10px 0px 40px 0px;
+  margin: 0;
+}
+
+.text.footer.left { margin-left: 5%; }
+
+
+/*--MEDIA--*/
+
+
+  /*600px and under*/
+@media only screen and (max-width: 500px) {
+    /*vertical mode => more square banner and solo column*/
+  #banner-image {
+    content: url("/static/photos/bannerSmall.jpg");
+  }
+  * {
+    /*corrects all other grid-column settings for a single column*/
+  grid-column: 1 !important;
+  }
+
+  #title {
+      /*downscaling text whilst keeping added wrap*/
+    font-size: 6em;
+    line-height: 1.1em;
+  }
+    /*the grid*/
+  #content {
+      /*changes for solo column*/
+    grid-template-columns: 100vw;
+    column-gap: unset;
+    justify-content: center;
+  }
+  #buttons {
+    display: none;
+  }
+  .text-and-header {
+    margin-top: 40px;
+  }
+  .title {
+    font-size: 3em;
+  }
+  .title.left {
+      /*ironically no longer left*/
+    text-align: center;
+  }
+  .self-image {
+    border-top-left-radius: unset;
+    margin-top: unset;
+  }
+  .abt-image {
+    width: 88%;
+    border-radius: 35px;
+  }
+  
+
+}
+
+  /*4k and somewhat below*/
+@media only screen and (min-width: 1900px) {
+    .button {
+      height: 60px;
+      font-size: 2.7rem;
+      width: 250px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+    }
+    .primary:hover { height: 80px; }
+    .title { font-size: 8rem; }
+    .text { font-size: xx-large; }
+    .text.footer.header {
+      font-size: 2.4rem;
+      margin-bottom: 0.3%;
+    }
+    .text.footer.left { margin-left: 4%; }
+    li { padding-top: 5%; }
+    .text.main { padding-top: 20px; }
+}

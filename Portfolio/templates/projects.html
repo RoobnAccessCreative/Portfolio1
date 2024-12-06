@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Projects | RD Portfolio</title>
+{% endblock %}
+
+{% block sidebar %}
+    <a class="item">
+        <i class="address card icon"></i>
+        <p>Profile</p>
+    </a>
+    <a class="item">
+        <i class="code icon"></i>
+        <p>Projects</p>
+    </a>
+{% endblock %}
+
+{% block content %}
+    {% set GIT_URL = "https://github.com/RoobnAccessCreative/"%}
+    <div id="buttons">
+
+        <a class="but primary" href="{{ url_for('home') }}">
+            <p tabindex="-1">Profile</p>
+        </a>
+
+        <a class="but" href="{{ url_for('projects') }}">
+            <p tabindex="-1">Projects</p>
+        </a>
+
+    </div>
+
+
+    <h1 class="title centre">Main Features</h1>
+
+    {% if main|length == 1 %}
+        {% set pro_pos = 'sideways-scroll single' %} {# aka centre if only one #}
+    {% else %}
+        {% set pro_pos = 'sideways-scroll' %}
+    {% endif %}
+
+    <div class="{{pro_pos}}">
+
+        {% for proj in main %}
+
+            <div class="mini-proj">
+
+                {% set url = "photos/projects/" + main[proj]['image'] %}
+                <img class="mini-img" src="{{ url_for('static', filename=url) }}"/>
+
+                <div class="logo-y-text">
+
+                    <div class="logo-y-links">
+
+                        {% set url = "photos/projects/" + main[proj]['logo'] %}
+                        <img class="mini-logo-img" src="{{ url_for('static', filename=url) }}"/>
+
+                        <div class="text links main">
+
+                            {% if main[proj]['github'] != None %}
+                                <a href="{{GIT_URL + main[proj]['github']}}">Github</a>
+                            {% endif %}
+
+                            {% if main[proj]['figma'] != None %}
+                                <a href="{{main[proj]['figma']}}">Figma</a>
+                            {% endif %}
+                            
+                        </div>
+                    </div>
+
+                    {% if main[proj]['date'] != None %}
+                        <p class="text main"><i>{{proj}} created on {{main[proj]['date']}}</i></p>
+                    {% else %}
+                        <p class="text main"><i>{{proj}} has no repository</i></p>
+                    {% endif %}
+
+                    <p class="text main space">{{main[proj]['bio']}}</p>
+
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="ui inverted divider wide"></div>
+
+    <h1 class="title centre">Other Recents</h1>
+
+    {% for proj in rec %}
+
+        {% set url = "photos/projects/" + rec[proj]['image'] %}
+        <img class="rec-img" src="{{ url_for('static', filename=url) }}"/>
+        
+        <div class="project-info">
+            <div class="logo-y-links">
+
+                {% set url = "photos/projects/" + rec[proj]['logo'] %}
+                <img class="logo-img" src="{{ url_for('static', filename=url) }}"/>
+
+                <div class="text links main">
+
+                    {% if rec[proj]['github'] != None %}
+                        <a href="{{GIT_URL + rec[proj]['github']}}">Github</a>
+                    {% endif %}
+
+                    {% if rec[proj]['figma'] != None %}
+                        <a href="{{rec[proj]['figma']}}">Figma</a>
+                    {% endif %}
+                    
+                </div>
+
+            </div>
+            
+            {% if rec[proj]['date'] != None %}
+                <p class="text main"><i>{{proj}} created on {{rec[proj]['date']}}</i></p>
+            {% else %}
+                <p class="text main"><i>{{proj}} has no repository</i></p>
+            {% endif %}
+
+            <p class="text body main space">{{rec[proj]['bio']}}</p>
+
+        </div>
+        
+    {% endfor %}
+
+{% endblock %}
