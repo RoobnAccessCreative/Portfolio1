@@ -5,13 +5,13 @@
 {% endblock %}
 
 {% block sidebar %}
-    <a class="item">
-        <i class="address card icon"></i>
-        <p>Profile</p>
+    <a class="item" href="{{ url_for('home') }}">
+        <i class="large address card icon"></i>
+        <p class="text side">Profile</p>
     </a>
-    <a class="item">
-        <i class="code icon"></i>
-        <p>Projects</p>
+    <a class="item" href="{{ url_for('projects') }}">
+        <i class="large code icon active-i"></i>
+        <p class="text side active">Projects</p>
     </a>
 {% endblock %}
 

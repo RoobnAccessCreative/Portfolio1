@@ -38,6 +38,11 @@ a:hover {
 }
 .title.navbar {
   font-family: 'Belanosima';
+  text-align: center;
+  font-size: 3.5em;
+  margin-top: 7%;
+  margin-bottom: 7%;
+  font-weight: lighter;
 }
 
 #content {
@@ -71,24 +76,66 @@ a:hover {
   right: 3%;
   z-index: 4;
 }
+
 .circular.ui.fixed.icon.button.burger {
   background-color: #B83205;
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.75);
   margin: 0;
 }
+
 .big.icon.bars {
   color: #F9F9FB;
 }
+
 .circular.ui.fixed.icon.button.burger:hover {
   background-color: #a92e05f9;
 }
+
 .big.icon.bars:hover {
   color: #d7d7d7;
-}
+} 
+
 i.big.icon {
   line-height: 0.9;
 }
 
+
+/*--sidebar menu--*/
+
+.ui.vertical.menu .item.space {
+  height: 0%;
+  padding: 0;
+}
+
+i.large.icon {
+  font-size: 1.1em !important;
+}
+
+i.large.icon.active-i, i.large.code.icon.active-i {
+  color: #B83205;
+}
+
+i.large.address.card.icon {
+  font-size: 1.4em !important;  /*since its the smaller of the two*/
+}
+
+.ui.vertical.menu .item>i.icon {
+  margin: 0;
+  float: left;
+}
+.ui.vertical.menu .item {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  column-gap: 2%;
+}
+
+a.item:hover { 
+  font-size: 1.1em !important;
+}
+.text.side, i.large.icon {
+  transition: font-size 0.2s ease-in-out;
+}
 
   /*the name card*/
 #title {
@@ -216,6 +263,7 @@ a.but:focus-visible {
   background: rgba(70, 48, 30, 0.9); 
 }
 
+
 /*--BELOW BANNER--*/
 
 
@@ -223,6 +271,15 @@ a.but:focus-visible {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.wrapper.abt {
+  grid-row: 2;
+}
+.wrapper.edu {
+  grid-row: 3;
+}
+.wrapper.exp {
+  grid-row: 4;
 }
 
   /*each holds 1x h1 & 1x p.text*/
@@ -266,33 +323,53 @@ a.but:focus-visible {
   margin-bottom: 0;
 }
 
-
+ul.text.body.left {
+  font-size: medium;
+  margin-top: 0;
+}
 
 
 /*--.text variations/additions--*/
 
 
+  /*text aligned with left page wall*/
 .text.left {
     /*push text out from the left*/
   margin-left: 10%;
 }
+
+  /*headers in the footer*/
 .text.footer.header {
     /*bolds headers*/
   font-weight: bold;
     /*adds a gap between sections*/
   padding-top: 20px;
-    /*margin slightly less than
-    the body beneath it*/
+    /*margin slightly less than the body beneath it*/
   margin-left: 65px;
 }
+
+  /*text on the projects page*/
 .text.main {
   max-width: 35.6vw;
   padding: 10px 0px 0px 10px;
   white-space: normal;
 }
+
 .space {
     /*adds a gap for additional paragraphs*/
   padding-top: 10px;
+}
+
+  /*a sidebar menu option*/
+.side {
+  width: fit-content;
+  font-size: 1.1em;
+  
+}
+  /*the active menu option - the page you're on*/
+.active {
+  color: #B83205;
+  font-weight: bold;
 }
 
 
@@ -310,10 +387,19 @@ a.but:focus-visible {
 }
 
 .self-image {
+  grid-row: 2;
     /*seperates img and banner*/
   margin-top: 30px; 
     /*rounds the only visible edge*/
   border-top-left-radius: 20px;
+}
+
+#edu-image {
+  grid-row: 3;
+}
+
+#exp-image {
+  grid-row: 4;
 }
 
 li {
@@ -463,24 +549,12 @@ li {
 
 /*--MEDIA--*/
 
-
-  /*600px and under*/
-@media only screen and (max-width: 500px) {
-    /*vertical mode => more square banner and solo column*/
-  #banner-image {
-    content: url("/static/photos/bannerSmall.jpg");
-  }
+@media only screen and (max-width: 700px) {
   * {
     /*corrects all other grid-column settings for a single column*/
-  grid-column: 1 !important;
-  }
-
-  #title {
-      /*downscaling text whilst keeping added wrap*/
-    font-size: 6em;
-    line-height: 1.1em;
-  }
-    /*the grid*/
+    grid-column: 1 !important;
+  } 
+  /*the grid*/
   #content {
       /*changes for solo column*/
     grid-template-columns: 100vw;
@@ -490,26 +564,71 @@ li {
   #buttons {
     display: none;
   }
-  .text-and-header {
-    margin-top: 40px;
-  }
-  .title {
-    font-size: 3em;
-  }
-  .title.left {
-      /*ironically no longer left*/
-    text-align: center;
-  }
   .self-image {
     border-top-left-radius: unset;
-    margin-top: unset;
+    margin-top: 9%;
   }
   .abt-image {
     width: 88%;
     border-radius: 35px;
   }
-  
+  .wrapper.abt {
+    grid-row: 3;
+  }
+  .wrapper.edu {
+    grid-row: 5;
+  }
+  .wrapper.exp {
+    grid-row: 7;
+  }
+  .self-image {
+    grid-row: 2;
+  }
+  #edu-image {
+    grid-row: 4;
+  }
+  #exp-image {
+    grid-row: 6;
+  }
+  .abt-image {
+    justify-self: center;
+  }
+}
 
+
+  /*500px and under*/
+@media only screen and (max-width: 500px) {
+    /*vertical mode => more square banner and solo column*/
+  #banner-image {
+    content: url("/static/photos/bannerSmall.jpg");
+  }
+  
+  #title {
+      /*downscaling text whilst keeping added wrap*/
+    font-size: 6em;
+    line-height: 1.1em;
+  }
+  
+  .text-and-header {
+    margin-top: 20px;
+  }
+
+  .title {
+    font-size: 3em;
+  }
+
+  .title.left {
+      /*ironically no longer left*/
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #title {
+    font-size: 4em;
+  }
 }
 
   /*4k and somewhat below*/

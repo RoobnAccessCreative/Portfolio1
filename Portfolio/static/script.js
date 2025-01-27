@@ -4,21 +4,15 @@ function check(v="You're code is bootiful") {
 }
 
 
+const item = $('a.item');
+
 const sideMenu = $('.ui.sidebar').sidebar({
-	transition: 'overlay'
-})
+	transition: 'overlay',
+  scrollLock: true // supposed to disable page scroll, probably does nothing lol
+});
 
 $('.burger').on('click', function () {
 	sideMenu.sidebar('toggle');
 });
 
-/*
-onVisible($('.ui.sidebar'), () => {
-  $('body.pushable>.pusher').css('overflow-y', 'hidden')
-})
-onHide($('.ui.sidebar'), () => {
-  $('body.pushable>.pusher').css('overflow-y', 'auto')
-})
 
-I fully give up on trying to stop scroll :/ 
-*/

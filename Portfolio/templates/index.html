@@ -6,12 +6,12 @@
 
 {% block sidebar %}
     <a class="item" href="{{ url_for('home') }}">
-        <i class="large address card icon"></i>
-        <p class="text active">Profile</p>
+        <i class="large address card icon active-i"></i>
+        <p class="text side active">Profile</p>
     </a>
     <a class="item" href="{{ url_for('projects') }}">
         <i class="large code icon"></i>
-        <p class="text">Projects</p>
+        <p class="text side">Projects</p>
     </a>
 {% endblock %}
 
@@ -26,7 +26,10 @@
         </a>
     </div>
 
-    <div class="wrapper">
+
+    <img class="abt-image self-image" src="{{ url_for('static', filename='photos/aboutc.jpg') }}"/>
+
+    <div class="wrapper abt">
         <div class="text-and-header">
             <h1 class="title left">About Me</h1>
 
@@ -45,9 +48,9 @@
         <div class="ui inverted divider small"></div>
     </div>
 
-    <img class="abt-image self-image" src="{{ url_for('static', filename='photos/aboutc.jpg') }}"/>
+    <img class="abt-image" id="edu-image" src="{{ url_for('static', filename='photos/edu.jpg') }}"/>
 
-    <div class="wrapper">
+    <div class="wrapper edu">
         <div class="text-and-header">
             <h1 class="title left">My Education</h1>
 
@@ -63,10 +66,10 @@
 
         <div class="ui inverted divider small"></div>
     </div>
-
-    <img class="abt-image" id="edu-image" src="{{ url_for('static', filename='photos/edu.jpg') }}"/>
     
-    <div class="text-and-header">
+    <img class="abt-image" id="exp-image" src="{{ url_for('static', filename='photos/exp.jpg') }}"/>
+
+    <div class="text-and-header wrapper exp">
         <h1 class="title left">My Experience</h1>
 
         <p class="text body left">My skillset has grown dramatically in the last year, including the following:</p>
@@ -81,7 +84,5 @@
             <li>SQLite</li>
         </ul>
     </div>
-    
-    <img class="abt-image" id="exp-image" src="{{ url_for('static', filename='photos/exp.jpg') }}"/>
     
 {% endblock %}
