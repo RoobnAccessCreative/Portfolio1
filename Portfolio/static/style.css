@@ -78,7 +78,7 @@ a:hover {
 }
 
 .circular.ui.fixed.icon.button.burger {
-  background-color: #B83205;
+  background-color: #c9613e;
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.75);
   margin: 0;
 }
@@ -112,7 +112,7 @@ i.large.icon {
 }
 
 i.large.icon.active-i, i.large.code.icon.active-i {
-  color: #B83205;
+  color: #c9613e;
 }
 
 i.large.address.card.icon {
@@ -210,7 +210,7 @@ a.but:focus-visible {
 .primary {
     /*colour of primary button
     (to switch pages)*/
-  background-color: #B83205;
+  background-color: #c9613e;
 
   box-shadow: inset 0px -3px 5px -1px rgba(0, 0, 0, 0.75);
 }
@@ -368,7 +368,7 @@ ul.text.body.left {
 }
   /*the active menu option - the page you're on*/
 .active {
-  color: #B83205;
+  color: #c9613e;
   font-weight: bold;
 }
 
@@ -553,7 +553,23 @@ li {
   * {
     /*corrects all other grid-column settings for a single column*/
     grid-column: 1 !important;
-  } 
+    justify-content: center;
+  }
+  .text {
+    font-weight: lighter;
+    margin-right: 10%;
+  }
+  .text.footer.header {
+    font-size: 0.9em;
+    margin-left: 5%;
+    margin-bottom: 1%;
+  }
+  .text.footer.left {
+    font-size: 0.8em;
+  }
+  .ui.inverted.divider {
+    display: none;
+  }
   /*the grid*/
   #content {
       /*changes for solo column*/
@@ -571,6 +587,7 @@ li {
   .abt-image {
     width: 88%;
     border-radius: 35px;
+    margin-top: 5%;
   }
   .wrapper.abt {
     grid-row: 3;
@@ -593,6 +610,27 @@ li {
   .abt-image {
     justify-self: center;
   }
+
+  /*--PROJECTS--*/
+
+  .mini-proj {
+    grid-template-columns: 80%;
+  }
+  .mini-img {
+    grid-row: 2;
+    width: 100%;
+  }
+  .logo-y-text {
+    grid-row: 1;
+  }
+  .mini-logo-img {
+    width: 75%;
+  }
+  .text.main {
+    width: fit-content;
+  }
+
+
 }
 
 
@@ -622,6 +660,7 @@ li {
     text-align: center;
     width: fit-content;
     margin: auto;
+    padding-bottom: 3%;
   }
 }
 
